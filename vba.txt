@@ -1,0 +1,24 @@
+Sub Main()
+Dim sArr(), dArr(), Rws As Long, I As Long, K As Long, R As Long, Txt, Txt1 As String
+Dim a As Integer
+Range("B2").Resize(10000).ClearContents
+
+For a = 2 To 100
+Rws = Range("A1000000").End(xlUp).Row
+If Rws = 1 Then Exit Sub
+Txt = UCase(Sheet14.Cells(a, 2))
+''a = a + 1
+sArr = Range("A1:A" & Rws).Value
+R = UBound(sArr)
+ReDim dArr(1 To R, 1 To 1)
+Range("F2").Value = "Hi"
+
+For I = 2 To R
+If Txt <> "" Then
+If UCase(sArr(I, 1)) Like "" & Txt & "" Then
+Sheet1.Cells(I, 2) = "1"
+End If
+End If
+Next I
+Next a
+End Sub
